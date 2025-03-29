@@ -1,0 +1,583 @@
+// Scss Document
+
+$grape1:#85318e;
+$grape2:#440062;
+$green1:#8ee45b;
+$green2:#003201;
+$red1:#df657d;
+$red2:#a11934;
+$yellow1:#ffeb78;
+$yellow2:#d0830d;
+$pink1:#e68ea6;
+$pink2:#db1e18;
+$blue1:#7cb2cc;
+$blue2:#334478;
+$orange1:#e99e2e;
+$orange2:#a5170a;
+
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap');
+/*
+font-family: 'Tangerine', cursive;
+font-family: 'Zen Maru Gothic', sans-serif;
+*/
+
+@mixin mq($breakpoint: pc) {
+  @if $breakpoint == sp {
+	  @media screen and (max-width: 768px) {
+		  @content;
+	  }
+	}@else if $breakpoint == tb{
+		@media screen and (min-width:769px) and (max-width: 1024px) {
+		  @content;
+	  }
+	}@else if $breakpoint == pc{
+		@media screen and (min-width:1024px) {
+			@content;
+		}
+	}
+}
+
+article *{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Zen Maru Gothic', sans-serif;
+	font-weight: 500;
+	font-size:  21px;
+	line-height: 1.6em;
+	@include mq(tb) {
+		font-size:  2.1vw;
+	}
+	@include mq(sp) {
+		font-size:  3.5vw;
+		line-height: 1.8em;
+	}
+}
+article{
+	br{
+		line-height: 0!important;
+	}
+	a{
+		@include mq(sp) {
+			text-decoration: none;
+			transition:none;
+		}
+	}
+	img{
+		width: 100%;
+	}
+	a:not(.noLink):not(.noFade){
+		text-decoration: none;
+		transition: opacity 0.2s;
+	}
+
+	a:hover:not(.noLink):not(.noFade){
+		opacity: 0.7;
+		@include mq(sp) {
+			opacity: 1;
+		}
+	}
+	li{
+		list-style: none;
+	}	
+}
+
+
+.st-Container {
+	width: 100%;
+	max-width: 100%;
+	padding: 0;
+	article{
+		width: 100%;
+		max-width: 100%;
+		padding: 0;
+		section{
+			&.content{
+				.inner{
+					width: 1024px;
+					margin: auto;
+					@include mq(tb) {
+						width: 100%;
+						padding: 0 3vw;
+					}
+					@include mq(sp) {
+						width: 100%;
+						padding: 3vw 6vw;
+					}
+				}
+				&:last-of-type{
+					margin-bottom: 50px;
+				}
+				
+			}
+			
+			&.hedWrap{
+				.inner{
+					padding-top: 70px;
+					.mainTitle{
+						text-align: center;
+						border-top: 2px solid $grape2;
+						border-bottom: 2px solid $grape2;
+						position: relative;
+						padding: 15px 0;
+						padding-bottom: 20px;
+						.en{
+							font-family: 'Tangerine', cursive;
+							font-size: 50px;
+							font-size: 700;
+							color: $grape2;
+							line-height: 1em;
+							@include mq(tb) {
+								font-size: 5vw;
+							}
+							@include mq(sp) {
+								font-size: 10vw;
+							}
+						}
+						.jp{
+							position: absolute;
+							background-color: #fff;
+							color: $grape2;
+							left: 50%;
+							bottom: 0;
+							padding: 0 10px;
+							transform: translate(-50%,50%);
+							line-height: 1em;
+						}
+					}
+					.catchWrap{
+						text-align: center;
+						.catch{
+							font-size: 35px;
+							letter-spacing: 2px;
+							font-weight: 900;
+							color: $grape1;
+							margin: 20px 0;
+							@include mq(tb) {
+								font-size: 3.5vw;
+								letter-spacing: 0.2vw;
+								margin: 2vw 0;
+							}
+							@include mq(sp) {
+								font-size: 7vw;
+								letter-spacing: 0.4vw;
+								margin: 4vw 0;
+								line-height: 12vw;
+							}
+						}
+						.body{
+							font-size: 20px;
+							letter-spacing: 4px;
+							line-height: 38px;
+							@include mq(tb) {
+								font-size: 2vw;
+								letter-spacing: 0.4vw;
+								line-height: 4vw;
+							}
+							@include mq(sp) {
+								font-size: 4vw;
+								letter-spacing: 0.8vw;
+								line-height: 8vw;
+							}
+						}
+					}
+				}
+			}
+			&.prdWrap{
+				.inner{
+					.products{
+						display: flex;
+						justify-content: space-between;
+						flex-wrap: wrap;
+						align-items: center;
+						@include mq(sp) {
+							display: block;
+						}
+						.image{
+							width: 34%;
+							overflow: hidden;
+							border-radius: 50%;
+							@include mq(sp) {
+								width: 60%;
+								margin: auto;
+							}
+							
+						}
+						.texts{
+							width: 60%;
+							@include mq(sp) {
+								width: 100%;
+							}
+							.name{
+								display: block;
+								position: relative;
+								font-size: 30px;
+								font-weight: 900;
+								-webkit-text-stroke-width: 7px;
+								font-weight: 700;
+								margin: 0;
+								border-bottom: 3px solid #fff;
+								@include mq(tb) {
+									-webkit-text-stroke-width: 0.7vw;
+									font-size: 3vw;
+									border-bottom: 0.3vw solid #fff;
+								}
+								@include mq(sp) {
+									-webkit-text-stroke-width: 1.5vw;
+									font-size: 5vw;
+									border-bottom: 0.6vw solid #fff;
+									text-align: center;
+								}
+								b{
+									position: absolute;
+									width: 100%;
+									font-size: 30px;
+									font-weight: 900;
+									left: 0;
+									top: 0;
+									-webkit-text-stroke-width: 1px;
+									z-index: 30;
+									font-weight: 700;
+									@include mq(tb) {
+										font-size: 3vw;
+										-webkit-text-stroke-width: 0.1vw;
+									}
+									@include mq(sp) {
+										font-size: 5vw;
+										-webkit-text-stroke-width: 0.2vw;
+									}
+								}
+							}
+							.body{
+								border-top: 1px solid #fff;
+								margin-top: 3px;
+								font-size: 23px;
+								padding: 10px 0;
+								@include mq(tb) {
+									border-top: 0.1vw solid #fff;
+									margin-top: 0.3vw;
+									font-size: 2.3vw;
+									padding: 1vw 0;
+								}
+								@include mq(sp) {
+									border-top: 0.2vw solid #fff;
+									margin-top: 0.6vw;
+									font-size: 4vw;
+									padding: 2vw 0;
+								}
+							}
+							.bt{
+								display: flex;
+								flex-wrap: wrap;
+								a{
+									color: #fff;
+									font-size: 25px;
+									display: block;
+									text-align: center;
+									width: 285px;
+									padding: 7px 0;
+									border-radius: 10px;
+									border:3px solid #fff;
+									margin-top: 10px;
+									position: relative;
+									@include mq(tb) {
+										font-size: 2.5vw;
+										width: 30vw;
+										padding: 0.7vw 0;
+										border-radius: 1vw;
+										border:0.3vw solid #fff;
+										margin-top: 1vw;
+									}
+									@include mq(sp) {
+										font-size: 5vw;
+										width: 60vw;
+										padding: 3vw 0;
+									}
+									&::after{
+										content: "";
+										font-size: 0;
+										position: absolute;
+										top: 0;
+										bottom: 0;
+										right: 20px;
+										margin: auto;
+										display: block;
+										width: 20px;
+										height: 20px;
+										border-top: 4px solid #fff;
+										border-right: 4px solid #fff;
+										border-radius: 1px;
+										transform: rotate(45deg);
+										@include mq(tb) {
+											right: 2vw;
+											width: 2vw;
+											height: 2vw;
+											border-top: 0.4vw solid #fff;
+											border-right: 0.4vw solid #fff;
+											border-radius: 0.1vw;
+										}
+										@include mq(sp) {
+											right: 4vw;
+											width: 4vw;
+											height: 4vw;
+											border-top: 0.8vw solid #fff;
+											border-right: 0.8vw solid #fff;
+											border-radius: 0.2vw;
+										}
+									}
+								}
+							}
+							
+						}
+					}
+				}
+				&:nth-child(2n){
+					.products{
+						.image{
+							order: 2;
+						}
+						.texts{
+							order: 1;
+							.bt{
+								justify-content: flex-end;
+								@include mq(sp) {
+									justify-content: center;
+								}
+							}
+						}
+					}
+				}
+				&:nth-child(2n+1){
+					.products{
+						.image{
+							order: 1;
+						}
+						.texts{
+							order: 2;
+							.bt{
+								justify-content: flex-start;
+								@include mq(sp) {
+									justify-content: center;
+								}
+							}
+						}
+					}
+				}
+				
+			}
+			
+			
+			&.whiteWrap{
+				background-color: #fff;
+				
+			}
+			&.grapeWrap{
+				background-color: $grape1;
+				.inner{
+					.products{
+						.texts{
+							.name{
+								color: $grape2;
+								b{
+									color: #fff;
+								}
+								
+							}
+							.body{
+								color: #fff;
+							}
+							.bt{
+								a{
+									background-color: $grape2;
+								}
+							}
+							
+						}
+					}
+				}
+			}
+			&.greenWrap{
+				background-color: $green1;
+				.inner{
+					.products{
+						.texts{
+							.name{
+								color: #fff;
+								border-bottom-color: $green2;
+								b{
+									color: $green2;
+								}
+							}
+							.body{
+								color: $green2;
+								border-top-color: $green2;
+							}
+							.bt{
+								a{
+									background-color: $green2;
+								}
+							}
+							
+						}
+					}
+				}
+			}
+			&.blueWrap{
+				background-color: $blue1;
+				.inner{
+					.products{
+						.texts{
+							.name{
+								color: #fff;
+								border-bottom-color: $blue2;
+								b{
+									color: $blue2;
+								}
+							}
+							.body{
+								color: $blue2;
+								border-top-color: $blue2;
+							}
+							.bt{
+								a{
+									background-color: $blue2;
+								}
+							}
+							
+						}
+					}
+				}
+			}
+			&.orangeWrap{
+				background-color: $orange1;
+				.inner{
+					.products{
+						.texts{
+							.name{
+								color: #fff;
+								border-bottom-color: $orange2;
+								b{
+									color: $orange2;
+								}
+							}
+							.body{
+								color: $orange2;
+								border-top-color: $orange2;
+							}
+							.bt{
+								a{
+									background-color: $orange2;
+								}
+							}
+							
+						}
+					}
+				}
+			}
+			
+			&.yellowWrap{
+				background-color: $yellow1;
+				.inner{
+					.products{
+						.texts{
+							.name{
+								color: #fff;
+								border-bottom-color: $yellow2;
+								b{
+									color: $yellow2;
+								}
+							}
+							.body{
+								color: $yellow2;
+								border-top-color: $yellow2;
+							}
+							.bt{
+								a{
+									background-color: $yellow2;
+								}
+							}
+							
+						}
+					}
+				}
+			}
+			&.redWrap{
+				background-color: $red1;
+				.inner{
+					.products{
+						.texts{
+							.name{
+								color: #fff;
+								border-bottom-color: $red2;
+								b{
+									color: $red2;
+								}
+							}
+							.body{
+								color: #fff;
+								border-top-color: $red2;
+							}
+							.bt{
+								a{
+									background-color: $red2;
+								}
+							}
+							
+						}
+					}
+				}
+			}
+			&.pinkWrap{
+				background-color: $pink1;
+				.inner{
+					.products{
+						.texts{
+							.name{
+								color: #fff;
+								border-bottom-color: $pink2;
+								b{
+									color: $pink2;
+								}
+							}
+							.body{
+								color: $pink2;
+								border-top-color: $pink2;
+							}
+							.bt{
+								a{
+									background-color: $pink2;
+								}
+							}
+							
+						}
+					}
+				}
+			}
+			
+			
+		}
+	}
+	.markBnrWrap{
+		width: 1024px;
+		margin: auto;
+		margin-top: 20px;
+		@include mq(tb) {
+			padding: 0 2.4vw;
+			width: 100%;
+		}
+		@include mq(sp) {
+			padding: 0 5vw;
+			width: 100%;
+		}
+	}
+}
+.topSnsWrap{
+	width: 1024px;
+	margin-left: auto!important;
+	margin-right: auto!important;
+	@include mq(tb) {
+		width: 100%;
+	}
+	@include mq(sp) {
+		width: 100%;
+	}
+}
